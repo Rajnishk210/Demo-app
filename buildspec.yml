@@ -1,0 +1,29 @@
+version: 0.0
+
+phases:
+  install:
+    
+    commands:
+      - echo Installing Nginx...
+      - sudo apt update && sudo apt install -y nginx  # Use this line instead for Ubuntu
+
+  pre_build:
+    commands:
+      - echo Starting Nginx service...
+      - sudo systemctl start nginx
+      - sudo systemctl enable nginx
+      - echo build start on "date"
+      - cp index.html /var/www/html
+
+  build:
+    commands:
+      - echo Build phase (if you have anything to build, add it here)
+
+  post_build:
+    commands:
+      - echo Nginx installation and startup complete.
+
+artifacts:
+  files:
+    - '**/*'
+
