@@ -2,16 +2,13 @@ version: 0.0
 
 phases:
   install:
-    
     commands:
       - echo Installing Nginx...
-      - sudo apt update && sudo apt install -y nginx  # Use this line instead for Ubuntu
+      - sudo apt-get update
+      - sudo apt-get install -y nginx  # Use this line  for Ubuntu
 
   pre_build:
     commands:
-      - echo Starting Nginx service...
-      - sudo systemctl start nginx
-      - sudo systemctl enable nginx
       - echo build start on "date"
       - cp index.html /var/www/html
 
