@@ -1,26 +1,18 @@
-version: 0.0
+version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.8
     commands:
-      - echo Installing Nginx...
+      - echo Installing nginx...
       - sudo apt-get update
-      - sudo apt-get install -y nginx  # Use this line  for Ubuntu
-
-  pre_build:
-    commands:
-      - echo build start on "date"
-      - cp index.html /var/www/html
+      - sudo apt-get install -y nginx
 
   build:
     commands:
-      - echo Build phase (if you have anything to build, add it here)
-
-  post_build:
-    commands:
-      - echo Nginx installation and startup complete.
+      - echo Build phase - nothing to do here
 
 artifacts:
   files:
     - '**/*'
-
